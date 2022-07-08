@@ -1,0 +1,9 @@
+server:
+  port: 9090
+aws:
+  emr:
+    cluster:
+      address: ${AWS_EMR_CLUSTER_URL:http://localhost:6066}
+      job:
+        submission:
+          create-path: /v1/submissions/create
