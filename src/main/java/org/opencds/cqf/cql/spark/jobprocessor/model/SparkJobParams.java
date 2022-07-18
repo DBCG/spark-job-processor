@@ -10,6 +10,10 @@ public class SparkJobParams {
     private String action;
     private List appArgs;
 
+    private String appJar;
+    //TBD remove the default clusterId
+    private String clusterId = "j-1FI7IX4M0PUMI";
+
     private EnvironmentVariables environmentVariables;
 
     public SparkProperties getSparkProperties() {
@@ -66,5 +70,21 @@ public class SparkJobParams {
 
     public void setEnvironmentVariables(EnvironmentVariables environmentVariables) {
         this.environmentVariables = environmentVariables;
+    }
+
+    public String getAppJar() {
+        return appJar;
+    }
+
+    public void setAppJar(String appJar) {
+        this.appJar = appJar;
+    }
+
+    public String getClusterId() {
+        return clusterId;
+    }
+
+    public void setClusterId(String clusterId) {
+        this.clusterId = clusterId;
     }
 }
