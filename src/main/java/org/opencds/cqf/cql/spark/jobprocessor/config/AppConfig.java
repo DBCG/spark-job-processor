@@ -1,83 +1,40 @@
 package org.opencds.cqf.cql.spark.jobprocessor.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConfigurationProperties
 public class AppConfig {
-
-    private Aws aws;
-
-    public Aws getAws() {
-        return aws;
+    @Value("${cloud.aws.credentials.accessKey}")
+    private String awsCredentialsAccessKey;
+    @Value("${cloud.aws.credentials.secretKey}")
+    private String awsCredentialsSecretKey;
+    @Value("${cloud.aws.region.static}")
+    private String awsRegionStatic;
+    public String getAwsCredentialsAccessKey() {
+        return awsCredentialsAccessKey;
     }
 
-    public void setAws(Aws aws) {
-        this.aws = aws;
+    public void setAwsCredentialsAccessKey(String awsCredentialsAccessKey) {
+        this.awsCredentialsAccessKey = awsCredentialsAccessKey;
     }
 
-    public static class Aws{
-        private Emr emr;
-
-        public Emr getEmr() {
-            return emr;
-        }
-
-        public void setEmr(Emr emr) {
-            this.emr = emr;
-        }
-
-        public static class Emr{
-            private Cluster cluster = new Cluster();
-
-            public Cluster getCluster(){
-                return cluster;
-            }
-            public static class Cluster{
-                private String address;
-                private Job job;
-
-                public String getAddress() {
-                    return address;
-                }
-
-                public void setAddress(String address) {
-                    this.address = address;
-                }
-
-                public Job getJob() {
-                    return job;
-                }
-
-                public void setJob(Job job) {
-                    this.job = job;
-                }
-
-                public static class Job{
-                    private Submission submission;
-
-                    public Submission getSubmission() {
-                        return submission;
-                    }
-
-                    public void setSubmission(Submission submission) {
-                        this.submission = submission;
-                    }
-
-                    public static class Submission{
-                        private String createPath;
-
-                        public String getCreatePath() {
-                            return createPath;
-                        }
-
-                        public void setCreatePath(String createPath) {
-                            this.createPath = createPath;
-                        }
-                    }
-                }
-            }
-        }
+    public String getAwsCredentialsSecretKey() {
+        return awsCredentialsSecretKey;
     }
+
+    public void setAwsCredentialsSecretKey(String awsCredentialsSecretKey) {
+        this.awsCredentialsSecretKey = awsCredentialsSecretKey;
+    }
+
+    public String getAwsRegionStatic() {
+        return awsRegionStatic;
+    }
+
+    public void setAwsRegionStatic(String awsRegionStatic) {
+        this.awsRegionStatic = awsRegionStatic;
+    }
+
 }

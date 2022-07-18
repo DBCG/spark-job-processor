@@ -1,9 +1,18 @@
 server:
   port: 9090
-aws:
-  emr:
-    cluster:
-      address: ${AWS_EMR_CLUSTER_URL:http://localhost:6066}
-      job:
-        submission:
-          create-path: /v1/submissions/create
+cloud:
+  aws:
+    region:
+      auto: false
+      static: us-west-2
+    stack:
+      auto: false
+    credentials:
+      accessKey: AKIA5IZ66FAPZCYTE3OH
+      secretKey: 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
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
