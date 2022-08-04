@@ -13,6 +13,18 @@ public class AppConfig {
     private String awsCredentialsSecretKey;
     @Value("${cloud.aws.region.static}")
     private String awsRegionStatic;
+
+    @Value("${livy.url}")
+    private String livyUrl;
+
+    public String getLivyUrl() {
+        return livyUrl;
+    }
+
+    public void setLivyUrl(String livyUrl) {
+        this.livyUrl = livyUrl;
+    }
+
     public String getAwsCredentialsAccessKey() {
         return awsCredentialsAccessKey;
     }

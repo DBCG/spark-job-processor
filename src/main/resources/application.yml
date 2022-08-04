@@ -16,3 +16,5 @@ logging:
       amazonaws:
         util:
           EC2MetadataUtils: error
+livy:
+  url: http://localhost:8157

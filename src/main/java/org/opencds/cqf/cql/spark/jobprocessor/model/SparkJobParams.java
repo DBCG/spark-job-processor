@@ -14,6 +14,10 @@ public class SparkJobParams {
     //TBD remove the default clusterId
     private String clusterId = "j-1FI7IX4M0PUMI";
 
+    private String master;
+
+    private String deployMode;
+
     private EnvironmentVariables environmentVariables;
 
     public SparkProperties getSparkProperties() {
@@ -22,6 +26,22 @@ public class SparkJobParams {
 
     public void setSparkProperties(SparkProperties sparkProperties) {
         this.sparkProperties = sparkProperties;
+    }
+
+    public String getMaster() {
+        return master;
+    }
+
+    public String getDeployMode() {
+        return deployMode;
+    }
+
+    public void setDeployMode(String deployMode) {
+        this.deployMode = deployMode;
+    }
+
+    public void setMaster(String master) {
+        this.master = master;
     }
 
     public String getAppResource() {
